@@ -4,6 +4,8 @@ def main():
     user_prompt = input("Enter your Query here: ")
     system_prompt = "you are a expert in writng the code"  
 
+
+
     # Initialize the chat with the system prompt and user prompt
     stream = ollama.chat(
         model='llama2',
