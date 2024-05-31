@@ -1,0 +1,24 @@
+import ollama
+
+def main():
+    user_prompt = input("Enter your Query here: ")
+    system_prompt = "you are a expert in writng the code"  
+
+    # Initialize the chat with the system prompt and user prompt
+    stream = ollama.chat(
+        model='llama2',
+        messages=[
+            {'role': 'system', 'content': system_prompt},
+            {'role': 'user', 'content': user_prompt}
+        ],
+        stream=True
+    )
+
+    response = ''
+    for chunk in stream:
+        response += chunk['message']['content']
+
+    print(response)
+
+if __name__ == "__main__":
+    main()
